@@ -69,7 +69,32 @@ class DetailSection extends StatelessWidget {
           // Fila 4: Género, Modalidad, Edad
           Row(
             children: [
-              Expanded(child: _infoColumn('Género', gender)),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade900,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.person, color: Colors.blue, size: 18),
+                      SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          gender,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               SizedBox(width: 8),
               Expanded(child: _infoColumn('Modalidad', modality)),
               SizedBox(width: 8),

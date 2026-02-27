@@ -50,6 +50,23 @@ class EventHeader extends StatelessWidget {
               ),
               child: Stack(
                 children: [
+                  // Flecha hacia atrás en la esquina superior izquierda
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.15),
+                        borderRadius: BorderRadius.circular(60),
+                        border: Border.all(
+                          color: Colors.white.withValues(alpha: 0.2),
+                          width: 0.5,
+                        ),
+                      ),
+                      child: Icon(Icons.arrow_back, color: Colors.white, size: 18),
+                    ),
+                  ),
                   // Badge MESTRES en la parte superior derecha
                   Positioned(
                     top: 0,
@@ -96,7 +113,7 @@ class EventHeader extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(Icons.location_on, color: Colors.white70, size: 14),
+                            Icon(Icons.stadium_outlined, color: Colors.white70, size: 14),
                             SizedBox(width: 2),
                             Text(
                               location,

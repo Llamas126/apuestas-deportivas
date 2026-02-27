@@ -17,12 +17,8 @@ class EventDetailScreen extends StatelessWidget {
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () => Navigator.pop(context),
-          child: Icon(Icons.arrow_back, color: Colors.white),
-        ),
-        title: Text('Eventos', style: TextStyle(color: Colors.white, fontSize: 18)),
+        elevation: null,
+        leading: null,
         centerTitle: false,
       ),
       body: SingleChildScrollView(
@@ -97,10 +93,10 @@ class EventDetailScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _navItem(Icons.event, 'Eventos', true),
+            _navItem(Icons.sports_soccer_rounded, 'Eventos', true),
             _navItem(Icons.emoji_events, 'Torneos', false),
-            _navItem(Icons.rss_feed, 'Novedades', false),
-            _navItem(Icons.person, 'Perfil', false),
+            _navItem(Icons.notifications_active_outlined, 'Novedades', false),
+            _navItem(Icons.person_pin, 'Perfil', false),
           ],
         ),
       ),
