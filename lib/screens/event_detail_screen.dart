@@ -96,19 +96,31 @@ class EventDetailScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container( // Barra de navegación inferior
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 12, bottom: 16),
         decoration: BoxDecoration(
           color: Colors.black87,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-        ),
-        child: Row( // Íconos de navegación
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _navItem(Icons.sports_soccer_rounded, 'Eventos', true),
-            _navItem(Icons.emoji_events, 'Torneos', false),
-            _navItem(Icons.notifications_active_outlined, 'Novedades', false),
-            _navItem(Icons.person_pin, 'Perfil', false),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.3),
+              blurRadius: 12,
+              offset: Offset(0, -4), // Sombra para dar profundidad a la barra de navegación
+            ),
           ],
+        ),
+        child: SafeArea( // SafeArea para evitar que los íconos de navegación se superpongan
+          // con las áreas de la pantalla que pueden ser difíciles de alcanzar o que pueden interferir
+          // con la interacción del usuario, como el área de gestos en dispositivos sin botones físicos.
+          top: false,
+          child: Row( // Íconos de navegación
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _navItem(Icons.sports_soccer_rounded, 'Eventos', true),
+              _navItem(Icons.emoji_events, 'Torneos', false),
+              _navItem(Icons.notifications_active_outlined, 'Novedades', false),
+              _navItem(Icons.person_pin, 'Perfil', false),
+            ],
+          ),
         ),
       ),
     );

@@ -28,9 +28,11 @@ class EventHeader extends StatelessWidget {
               ),
             ],
             image: DecorationImage( // Imagen de fondo con un filtro de desenfoque para mejorar la legibilidad del texto
-              image: NetworkImage('https://populous.com/uploads/2018/01/IMG_1858edit-1200x900-c-center.jpg'),
+              image: AssetImage('assets/images/stadium.jpg'),
               fit: BoxFit.cover,
-              onError: (_, __) {}, // En caso de error al cargar la imagen, se muestra un fondo degradado sin la imagen.
+              onError: (exception, stackTrace) {
+                debugPrint('Error loading image: $exception');
+              },
             ),
           ),
           child: BackdropFilter( // Aplica un filtro de desenfoque a la imagen de fondo para mejorar la legibilidad del texto y los elementos superpuestos.
