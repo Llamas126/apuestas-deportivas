@@ -17,29 +17,29 @@ class EventHeader extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 240,
-          decoration: BoxDecoration(
+          decoration: BoxDecoration( // Estilo del contenedor principal del header
             color: Color(0xfffdc300).withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(40),
             boxShadow: [
-              BoxShadow(
+              BoxShadow( // Sombra suave para darle profundidad al header
                 color: Colors.black.withValues(alpha: 0.15),
                 blurRadius: 12,
                 offset: Offset(0, 6),
               ),
             ],
-            image: DecorationImage(
+            image: DecorationImage( // Imagen de fondo con un filtro de desenfoque para mejorar la legibilidad del texto
               image: NetworkImage('https://populous.com/uploads/2018/01/IMG_1858edit-1200x900-c-center.jpg'),
               fit: BoxFit.cover,
-              onError: (_, __) {},
+              onError: (_, __) {}, // En caso de error al cargar la imagen, se muestra un fondo degradado sin la imagen.
             ),
           ),
-          child: BackdropFilter(
+          child: BackdropFilter( // Aplica un filtro de desenfoque a la imagen de fondo para mejorar la legibilidad del texto y los elementos superpuestos.
             filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-            child: Container(
+            child: Container(  //contenedor interno para el degradado oscuro y los elementos del header
               padding: EdgeInsets.fromLTRB(16, 12, 16, 70),
               decoration: BoxDecoration( //esto es para el degradado oscuro del header
                 borderRadius: BorderRadius.circular(40),
-                gradient: LinearGradient(
+                gradient: LinearGradient( // degradado oscuro que va de transparente
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
@@ -54,9 +54,9 @@ class EventHeader extends StatelessWidget {
                   Positioned(
                     top: 0,
                     left: 0,
-                    child: Container(
+                    child: Container( //
                       padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
-                      decoration: BoxDecoration(
+                      decoration: BoxDecoration( // Estilo del botón de retroceso con un fondo semitransparente y bordes redondeados
                         color: Colors.white.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(60),
                         border: Border.all(
@@ -71,7 +71,7 @@ class EventHeader extends StatelessWidget {
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: Container(
+                    child: Container( //contenedor de ''Mestres''
                       padding: EdgeInsets.symmetric(horizontal: 11, vertical: 4),
                       decoration: BoxDecoration(
                         color: Colors.white.withValues(alpha: 0.15),
@@ -81,7 +81,7 @@ class EventHeader extends StatelessWidget {
                           width: 0.5,
                         ),
                       ),
-                      child: Text(
+                      child: Text( //texto de Mestres
                         'MESTRES',
                         style: TextStyle(
                           color: Colors.white,
@@ -98,7 +98,7 @@ class EventHeader extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        Text( // Titulo del evento
                           title,
                           style: TextStyle(
                             color: Colors.white,
@@ -109,13 +109,13 @@ class EventHeader extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                         SizedBox(height: 6),
-                        Row(
+                        Row( // Localización del evento con ícono de estadio
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Icon(Icons.stadium_outlined, color: Colors.white70, size: 14),
                             SizedBox(width: 2),
-                            Text(
+                            Text( // Texto de localización
                               location,
                               style: TextStyle(
                                 color: Colors.white70,
@@ -140,7 +140,8 @@ class EventHeader extends StatelessWidget {
           right: 16,
           bottom: 20,
           child: EventTabs(activeIndex: 0),
-        )
+        ) //decidi colocar los tabs dentro del stack del header para que se superpongan
+        // un poco al fondo del header, dando un efecto de integración entre el header y los tabs
       ],
     );
   }

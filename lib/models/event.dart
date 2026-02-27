@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'participant.dart';
-
+// se creo esta clase para representar un evento deportivo, con sus detalles y
+// la lista de participantes. Es el modelo principal que se usará en la aplicación
+// para mostrar la información del evento en la pantalla de detalles.
 class Event {
   final String id;
   final String title;

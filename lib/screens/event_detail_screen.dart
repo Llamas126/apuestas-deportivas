@@ -6,9 +6,20 @@ import '../widgets/participants_section.dart';
 import '../widgets/custom_button.dart';
 import '../utils/constants.dart';
 
+// Esta pantalla muestra los detalles completos de un evento deportivo, incluyendo su título,
+// ubicación, fecha, hora, costo, modalidad, género, edad mínima y la lista de participantes.
+// También incluye un botón para participar en el evento y una barra de navegación inferior
+// para acceder a otras secciones de la aplicación.
 class EventDetailScreen extends StatelessWidget {
   final Event event;
+
+  //utilizo key para permitir que el widget sea identificado de
+  // manera única en el árbol de widgets, lo que es útil para optimizaciones
+  // y para evitar problemas al actualizar la interfaz de usuario.
+  // Es una buena práctica incluirlo en los widgets personalizados,
+  // especialmente si se espera que puedan ser reutilizados o actualizados dinámicamente.
   const EventDetailScreen({required this.event, Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +32,7 @@ class EventDetailScreen extends StatelessWidget {
         leading: null,
         centerTitle: false,
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView( // Permite que el contenido sea desplazable si no cabe en la pantalla
         padding: EdgeInsets.all(0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +43,7 @@ class EventDetailScreen extends StatelessWidget {
             ),
             SizedBox(height: 28), // Espacio para los tabs sobresalientes
 
-            Container(
+            Container( // Detalles del evento
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: DetailSection(
                 date: event.date,
@@ -46,13 +57,13 @@ class EventDetailScreen extends StatelessWidget {
             ),
 
             SizedBox(height: 24),
-            Container(
+            Container( // Sección de participantes
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: ParticipantsSection(participants: event.participants, maxParticipants: 20),
             ),
 
             SizedBox(height: 24),
-            Container(
+            Container( // Botón de participar
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
@@ -67,7 +78,7 @@ class EventDetailScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 12),
-                  Container(
+                  Container( // Botón de enviar mensaje
                     width: 56,
                     height: 56,
                     decoration: BoxDecoration(
@@ -84,13 +95,13 @@ class EventDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: Container( // Barra de navegación inferior
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
           color: Colors.black87,
           borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
         ),
-        child: Row(
+        child: Row( // Íconos de navegación
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             _navItem(Icons.sports_soccer_rounded, 'Eventos', true),
@@ -104,7 +115,7 @@ class EventDetailScreen extends StatelessWidget {
   }
 
   Widget _navItem(IconData icon, String label, bool active) {
-    return Column(
+    return Column( // Cada ítem de navegación es una columna con un ícono y un texto
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon, color: active ? kAccentYellow : Colors.grey, size: 22),

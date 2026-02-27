@@ -1,3 +1,4 @@
+// Modelo para representar a un participante en el juego
 class Participant {
   final String id;
   final String name;

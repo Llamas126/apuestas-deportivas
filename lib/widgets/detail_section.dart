@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
-
+// Esta sección muestra los detalles del evento: fecha,
+// hora, costo, lugar, modalidad, género y edad mínima.
+// Se organiza en filas con íconos y texto para cada detalle.
 class DetailSection extends StatelessWidget {
   final DateTime date;
   final String location;
@@ -23,14 +25,16 @@ class DetailSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // El Container principal tiene un fondo oscuro,
+    // bordes redondeados y una sombra para darle profundidad.
     return Container(
       padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
+      decoration: BoxDecoration( // Estilo del contenedor principal
         color: kCardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 6, offset: Offset(0, 2))],
       ),
-      child: Column(
+      child: Column( // Organiza los detalles en una columna con espacio entre cada fila
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Fila 1: Fecha
@@ -41,12 +45,12 @@ class DetailSection extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
+              Expanded( // Hora con ícono de reloj
                 flex: 1,
                 child: _rowIconText(Icons.access_time, 'Hora', timeRange),
               ),
               SizedBox(width: 12),
-              Expanded(
+              Expanded( // Costo con texto destacado en amarillo
                 flex: 1,
                 child: _rowIconText(Icons.monetization_on, 'Costo', 'B/. ${cost.toStringAsFixed(2)}', isHighlight: true),
               ),
@@ -55,7 +59,7 @@ class DetailSection extends StatelessWidget {
           SizedBox(height: 12),
 
           // Fila 3: Lugar
-          _rowIconText(Icons.location_on, 'Lugar', location, trail: GestureDetector(
+          _rowIconText(Icons.location_on, 'Lugar', location, trail: GestureDetector( // Agrega un botón "¿Cómo llegar?" al lado del lugar
             onTap: () {},
             child: Text('¿Cómo llegar?',
               style: TextStyle(
@@ -69,19 +73,19 @@ class DetailSection extends StatelessWidget {
           // Fila 4: Género, Modalidad, Edad
           Row(
             children: [
-              Expanded(
+              Expanded( // Género con ícono personalizado
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade900,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Row(
+                  child: Row( // Ícono de persona seguido del texto del género
                     children: [
                       Icon(Icons.person, color: Colors.blue, size: 18),
                       SizedBox(width: 8),
                       Expanded(
-                        child: Text(
+                        child: Text( //texto del género con estilo y manejo de desbordamiento
                           gender,
                           style: TextStyle(
                             color: Colors.white,
