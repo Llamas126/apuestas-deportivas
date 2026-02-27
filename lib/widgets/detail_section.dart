@@ -90,7 +90,7 @@ class DetailSection extends StatelessWidget {
           height: 40,
           decoration: BoxDecoration(
             color: Colors.grey.shade900,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(60),
           ),
           child: Icon(icon, color: kMutedText, size: 20),
         ),
